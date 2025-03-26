@@ -10,6 +10,8 @@ debe guardarse en un fichero llamado classificacio.txt, el nombre del usuario y 
 */
 public class Main {
     public static void main(String[] args) {
+        ReadFile accessing = new ReadFile();
+        accessing.read();
 
     }
 }
