@@ -2,22 +2,35 @@ package Ejercicio3;
 
 import java.io.*;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 public class ReadFile {
-    public void read (){
-        char letter = 0;
+    public void read() {
+        HashMap<String, String> dataMap = new HashMap<>();
         try {
             String path = Paths.get("src", "Files", "txt", "countries.txt").toString();
-            FileReader inpu = new FileReader(path);
-            int x = 0;
-            while (x!=-1){
-                x = inpu.read();
-                letter = (char)x;
-                System.out.print(letter);
+            FileReader reader = new FileReader(path);
+            BufferedReader mybuffer = new BufferedReader(reader);
+            String line;
+            while ((line = mybuffer.readLine()) != null) {
+
+                String[] parts = line.split(" ");
+                if (parts.length == 2) {
+                    String key = parts[0].trim();
+                    String value = parts[1].trim();
+                    dataMap.put(key, value);
+                }
             }
-            inpu.close();
+            reader.close();
         } catch (IOException e) {
             System.out.println("file not found");
         }
+        System.out.println("el contenido de del map");
+        for (String key : dataMap.keySet()) {
+
+            System.out.println(key + ":  " + dataMap.get(key));
+
+        }
+
     }
 }
