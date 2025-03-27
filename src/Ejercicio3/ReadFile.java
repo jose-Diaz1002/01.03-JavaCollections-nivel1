@@ -1,12 +1,14 @@
 package Ejercicio3;
 
 import java.io.*;
+import java.nio.file.Paths;
 
 public class ReadFile {
     public void read (){
         char letter = 0;
         try {
-            FileReader inpu = new FileReader("C:\\Users\\formacio\\Desktop\\JoseProgramas\\01.03-JavaCollections-nivel1/countries.txt");
+            String path = Paths.get("src", "Files", "txt", "countries.txt").toString();
+            FileReader inpu = new FileReader(path);
             int x = 0;
             while (x!=-1){
                 x = inpu.read();
@@ -15,8 +17,7 @@ public class ReadFile {
             }
             inpu.close();
         } catch (IOException e) {
-            //throw new RuntimeException(e);
-            //System.out.println("file not found");
+            System.out.println("file not found");
         }
     }
 }
