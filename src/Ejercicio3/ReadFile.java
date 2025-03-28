@@ -1,4 +1,5 @@
 package Ejercicio3;
+
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -30,34 +31,28 @@ public class ReadFile {
         } catch (IOException e) {
             System.out.println("file not found");
         }
-
         System.out.println("Enter your name: ");
         name = scanner.nextLine();
 
         List<String> countries = new ArrayList<>(dataMap.keySet());
-
-
-
         int counter = 0;
 
-        for(int i =1; i <=10; i++){
+        for (int i = 1; i <= 10; i++) {
 
             String randomCountry = countries.get(random.nextInt(countries.size()));
-            System.out.println("Cual es la capital de "+ randomCountry + ": ");
+            System.out.println("Cual es la capital de " + randomCountry + ": ");
             String country = scanner.nextLine().trim();
-
-            if(country.equalsIgnoreCase(dataMap.get(randomCountry))){
+            if (country.equalsIgnoreCase(dataMap.get(randomCountry))) {
                 System.out.println("Very good");
                 counter++;
             } else {
                 System.out.println("Incorrect. The correct answer is: " + dataMap.get(randomCountry));
             }
         }
-        System.out.println("\n"+ name + ". your final score is: "+ counter + "/10");
-        WriteFile(name,counter);
-
+        System.out.println("\n" + name + ". your final score is: " + counter + "/10");
+        WriteFile(name, counter);
     }
-    public void WriteFile(String name, int score){
+    public void WriteFile(String name, int score) {
         String path = Paths.get("src", "Files", "txt", "classification.txt").toString();
         try {
             FileWriter writer = new FileWriter(path, true);
@@ -69,7 +64,6 @@ public class ReadFile {
         } catch (IOException e) {
             System.out.println("Error saving score.");
         }
-
     }
 }
 

@@ -1,4 +1,5 @@
 package ejercicio1;
+
 import java.util.*;
 
 public class Main {
@@ -32,35 +33,32 @@ public class Main {
         months.add(month11);
         months.add(month12);
 
-        //months.add(7,month8);
-
-        for(Month month : months){
+        for (Month month : months) {
             System.out.println(month.getName());
         }
-
         System.out.println("--------------------------------------------");
 
         ListIterator<Month> iterator = months.listIterator();
 
-        while (iterator.hasNext()){
-           if (iterator.next().getName().equals("July")){
-               iterator.add(month8);
-           }
+        while (iterator.hasNext()) {
+            if (iterator.next().getName().equals("July")) {
+                iterator.add(month8);
+            }
         }
-        for(Month month : months){
+        for (Month month : months) {
             System.out.println(month.getName());
         }
 
         HashSet<Month> lists = new HashSet<Month>();
         lists.addAll(months);
         System.out.println("----------------------------------------------");
-        for(Month list : lists){
+        for (Month list : lists) {
             System.out.println(list.getName());
         }
         System.out.println("----------------------------------------------");
 
         Iterator<Month> iterator2 = lists.iterator();
-        while (iterator2.hasNext()){
+        while (iterator2.hasNext()) {
             System.out.println(iterator2.next().getName());
         }
 
