@@ -2,3 +2,4 @@ jose - 2/10
 maria - 2/10
 sssd - 0/10
 jose - 0/10
+jose - 1/10
